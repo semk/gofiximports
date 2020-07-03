@@ -1,6 +1,12 @@
 # gofiximports
 Utility to fix/replace import paths in Go files recursively & format like gofmt
 
+## Installation
+
+```
+$ go get github.com/semk/gofiximports
+```
+
 ## Examples
 
 The following example replaces all imports of `"library/module"` to `"repository/library/module"`
