@@ -1,5 +1,5 @@
 # gofiximports
-Utility to fix/replace import paths in Go files recursively with formatting similar to gofmt
+Utility to fix/replace import paths in Go files recursively & format like gofmt
 
 ## Examples
 
