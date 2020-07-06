@@ -3,7 +3,7 @@ Utility to fix/replace import paths in Go files recursively & pretty-print like 
 
 ## Installation
 
-```shell
+```
 $ go get github.com/semk/gofiximports
 ```
 
@@ -40,7 +40,7 @@ Usage of gofiximports:
 The following example replaces all imports of `"library/module"` to `"repository/library/module"`
 recursively inside the `awesome_go_project` directory. The command only modifies `.go` files.
 
-```shell
+```
 $ gofiximports -dir awesome_go_project -from "library/module" -to "repository/library/module"
 ```
 
@@ -56,14 +56,13 @@ func main() {
 }
 ```
 
-```shell
+```
 $ gofiximports -dir test -from "fmt" -to "log"
 2020/07/06 15:07:51 Modified import paths for 1 files in path "test"
 ```
 
 After fixing imports:
 ```go
-cat test/test.go.tmpl 
 package main
 
 import logger "log"
@@ -76,6 +75,6 @@ func main() {
 
 You can also pass the list of files to `stdin` using pipe.
 
-```shell
-ls test/test.go | gofiximports -stdin -from "fmt" -to "log" 
+```
+$ ls test/test.go | gofiximports -stdin -from "fmt" -to "log" 
 ```
