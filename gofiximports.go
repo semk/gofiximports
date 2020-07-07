@@ -79,7 +79,11 @@ func replaceImportsInFile(filePath, from, to string, printMode printer.Mode, tab
 func replaceImportsInFilesFromStdin(from, to string, printMode printer.Mode, tabWidth, indent int) error {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
-		err := replaceImportsInFile(scanner.Text(), from, to, printMode, tabWidth, indent)
+		filePath := scanner.Text()
+		if _, err := os.Stat(filePath); os.IsNotExist(err) {
+			return err
+		}
+		err := replaceImportsInFile(filePath, from, to, printMode, tabWidth, indent)
 		if err != nil {
 			return err
 		}
