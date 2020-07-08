@@ -58,7 +58,6 @@ func main() {
 
 ```
 $ gofiximports -dir test -from "fmt" -to "log"
-2020/07/06 15:07:51 Modified import paths for 1 files in path "test"
 ```
 
 After fixing imports:
@@ -76,5 +75,5 @@ func main() {
 You can also pass the list of files to `stdin` using pipe.
 
 ```
-$ ls test/test.go | gofiximports -stdin -from "fmt" -to "log" 
+$ find ./test -name "*.go" | gofiximports -stdin -from "fmt" -to "log" 
 ```
